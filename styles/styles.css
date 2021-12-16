@@ -148,17 +148,30 @@ main {
 }
 
 .create-post {
-  position: absolute;
+  position: fixed;
   top: 80%;
   right: 10%;
   background: #5770ff;
   outline: none;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   color: #ffffff;
-  font-size: 2em;
+  font-size: 1.8em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .posts-section {
@@ -169,16 +182,16 @@ main {
   font-weight: 500;
   font-size: 1.5em;
   color: black;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 }
 
 .post-title {
   font-weight: 400;
   font-size: 1.1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
-.blogger-info {
+.blogger-info, .commentor-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,7 +207,7 @@ main {
           align-items: center;
 }
 
-.profile-img {
+.profile-img, .commentor-img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -231,7 +244,93 @@ main {
 .post-text {
   line-height: 2;
   font-size: .85em;
-  padding: 15px 0;
+  margin-top: 1.5em;
   font-weight: 500;
+  color: #727272;
+}
+
+.like-share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2em 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.like-share div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.like-share div ion-icon {
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+.comments-section {
+  padding: 2em 1.5em;
+}
+
+.add-new-post {
+  margin-bottom: 1em;
+}
+
+.comments-counter-container {
+  font-weight: 500;
+  margin-top: 2em;
+}
+
+.comments-title {
+  margin-top: .5em;
+}
+
+.comment-text {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+}
+
+.comment-text::-webkit-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  padding: .5em 1em;
+}
+
+.comment-text:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  padding: .5em 1em;
+}
+
+.comment-text::-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  padding: .5em 1em;
+}
+
+.comment-text::placeholder {
+  font-family: "Poppins", sans-serif;
+  padding: .5em 1em;
+}
+
+.comments {
+  padding-top: 1.5em;
 }
 /*# sourceMappingURL=styles.css.map */
