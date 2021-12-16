@@ -35,7 +35,9 @@
     </header>
 
     <main>
-        <button class="create-post">+</button>
+        <button class="create-post">
+            <ion-icon name="add-outline"></ion-icon>
+        </button>
         <section class="posts-section">
             <h2 class="section-title">Welcome to our Forum posts</h2>
             <div class="post">
@@ -54,37 +56,46 @@
                     Cum esse perspiciatis dolore voluptatum mollitia quo quia ipsam,</p>
 
                 <div class="like-share">
-                    <div>
-                        <div class="icon"></div>
+                    <div class="likes-component">
+                        <ion-icon name="heart-outline"></ion-icon>
                         <small>4 likes</small>
                     </div>
 
-                    <div>
-                        <div class="icon"></div>
+                    <div class="share-component">
+                        <ion-icon name="share-social-outline"></ion-icon>
                         <small>share</small>
 
                     </div>
                 </div>
 
-                <input type="text" name="comment" placeholder="Add Your comments">
 
-                <h6> <span>12</span> comments</h6>
+                <div class="comments-section">
 
-                <div class="comments">
-                    <div class="comment">
-                        <div class="commentor-info">
-                            <img src="" alt="">
-                            <div class="name-time">
-                                <strong>Dennis Mitchell</strong>
-                                <small>4 days ago</small>
+                    <h5 class="add-new-post">Add new comment on this post</h5>
+
+                    <textarea class="comment-text" name="comment" id="comment" cols="20" rows="10"
+                        placeholder="Add your comments"></textarea>
+
+                    <div class="comments-counter-container">
+                        <span class="comments-counter">12</span>
+                        <span class="comments-counter-text">Comments</span>
+                    </div>
+
+                    <div class="comments">
+                        <div class="comment">
+                            <div class="commentor-info">
+                                <img class="commentor-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
+                                <div class="name-time">
+                                    <strong class="name">Dennis Mitchell</strong>
+                                    <small class="time-posted">4 days ago</small>
+                                </div>
                             </div>
-                        </div>
 
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias deserunt labore, autem
-                            sunt
-                            dolores illum recusandae eveniet ipsam perferendis, consequatur voluptatibus neque tempore
-                            est
-                            quidem magni! Voluptatibus provident exercitationem dolores!</p>
+                            <p class="post-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+                                deserunt labore, autem
+                                sunt
+                                dolores illum recusandae eveniet ipsam perferendis, </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,6 +103,10 @@
     </main>
 
     <script src="./main.js"></script>
+
+    <!-- IONIC ICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
