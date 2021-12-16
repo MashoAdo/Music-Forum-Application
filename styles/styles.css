@@ -39,17 +39,17 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 30px;
-  border-bottom: 2px solid #b5b4b4;
+  border-bottom: 2px solid #e6e6e6;
 }
 
 .logo {
-  font-weight: 900;
+  font-weight: 500;
   font-size: 1.5em;
-  color: #566fff;
+  color: #5770ff;
 }
 
 .menu-btn {
-  border: 3px solid #727272;
+  border: 3px solid #e6e6e6;
   width: 40px;
   height: 40px;
   -webkit-transition: all 0.3s ease-out;
@@ -70,11 +70,11 @@ nav {
 }
 
 .menu-btn:hover {
-  border-color: #566fff;
+  border-color: #5770ff;
 }
 
 .menu-btn:hover .line {
-  background: #566fff;
+  background: #5770ff;
 }
 
 .line {
@@ -104,7 +104,7 @@ nav {
         -ms-flex-align: start;
             align-items: flex-start;
     padding: 50px 30px;
-    border: 2px solid #c6c6c6;
+    border: 2px solid #cccccc;
     height: 60vh;
     width: 50%;
     position: absolute;
@@ -127,7 +127,7 @@ nav {
 }
 
 .menu-link:hover {
-  color: #566fff;
+  color: #5770ff;
 }
 
 .sign-in {
@@ -140,6 +140,98 @@ nav {
 }
 
 .sign-in:hover {
-  color: #566fff;
+  color: #5770ff;
+}
+
+main {
+  position: relative;
+}
+
+.create-post {
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  background: #5770ff;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.posts-section {
+  padding: 20px 30px;
+}
+
+.section-title {
+  font-weight: 500;
+  font-size: 1.5em;
+  color: black;
+  margin-bottom: 1.5em;
+}
+
+.post-title {
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.blogger-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name-time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: initial;
+      -ms-flex-pack: initial;
+          justify-content: initial;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.time-posted {
+  color: #999999;
+}
+
+.post-text {
+  line-height: 2;
+  font-size: .85em;
+  padding: 15px 0;
+  font-weight: 500;
 }
 /*# sourceMappingURL=styles.css.map */
