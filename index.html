@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Forum Application</title>
-
+    <!-- style sheet -->
     <link rel="stylesheet" href="./styles/styles.css">
+
+
+    <!--import google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -35,71 +39,84 @@
     </header>
 
     <main>
-        <button class="create-post">
-            <ion-icon name="add-outline"></ion-icon>
-        </button>
-        <section class="posts-section">
-            <h2 class="section-title">Welcome to our Forum posts</h2>
-            <div class="post">
-                <h4 class="post-title">Best way to export data in xml and csv format</h4>
-                <div class="blogger-info">
-                    <img class="profile-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
-                    <div class="name-time">
-                        <strong class="name">Hunters Rodgers</strong>
-                        <small class="time-posted">4 days ago</small>
+        <!--posts pop up -->
+        <!-- <div class="post-modal active">
+            <h2>Write a post</h2>
+            <textarea name="post-pop-up" id="post-pop-up"></textarea>
+            <button data-close-button="close-button">Post</button>
+        </div>
+        <div id="overlay"></div> -->
+        <!-- posts container -->
+        <div class="posts-container">
+            <button class="create-post" id="create-post">
+                <ion-icon name="add-outline"></ion-icon>
+            </button>
+            <section class="posts-section">
+                <h2 class="section-title" id="form-post-title">Welcome to our Forum Discussion</h2>
+                <div class="post">
+                    <h4 class="post-title">Best way to export data in xml and csv format</h4>
+                    <div class="blogger-info">
+                        <img class="profile-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
+                        <div class="name-time">
+                            <strong class="name">Hunter Rodgers</strong>
+                            <small class="time-posted">4 days ago</small>
+                        </div>
                     </div>
-                </div>
-                <p class="post-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eum commodi
-                    accusamus facilis
-                    iste quidem magnam at laborum non, aspernatur quisquam ea neque voluptatum. Molestiae reiciendis aut
-                    eius iure minus!
-                    Cum esse perspiciatis dolore voluptatum mollitia quo quia ipsam,</p>
+                    <p class="post-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis eum
+                        commodi
+                        accusamus facilis
+                        iste quidem magnam at laborum non, aspernatur quisquam ea neque voluptatum. Molestiae reiciendis
+                        aut
+                        eius iure minus!
+                        Cum esse perspiciatis dolore voluptatum mollitia quo quia ipsam,</p>
 
-                <div class="like-share">
-                    <div class="likes-component">
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <small>4 likes</small>
-                    </div>
+                    <div class="like-share">
+                        <div class="likes-component">
+                            <ion-icon name="heart-outline"></ion-icon>
+                            <small>4 likes</small>
+                        </div>
 
-                    <div class="share-component">
-                        <ion-icon name="share-social-outline"></ion-icon>
-                        <small>share</small>
+                        <div class="share-component">
+                            <ion-icon name="share-social-outline"></ion-icon>
+                            <small>share</small>
 
-                    </div>
-                </div>
-
-
-                <div class="comments-section">
-
-                    <h5 class="add-new-post">Add new comment on this post</h5>
-
-                    <textarea class="comment-text" name="comment" id="comment" cols="20" rows="10"
-                        placeholder="Add your comments"></textarea>
-
-                    <div class="comments-counter-container">
-                        <span class="comments-counter">12</span>
-                        <span class="comments-counter-text">Comments</span>
+                        </div>
                     </div>
 
-                    <div class="comments">
-                        <div class="comment">
-                            <div class="commentor-info">
-                                <img class="commentor-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
-                                <div class="name-time">
-                                    <strong class="name">Dennis Mitchell</strong>
-                                    <small class="time-posted">4 days ago</small>
+
+                    <div class="comments-section">
+
+                        <h5 class="add-new-post">Add new comment on this post</h5>
+
+                        <textarea class="new-comment-text" name="comment" id="comment" cols="20" rows="10"
+                            placeholder="Add your comments"></textarea>
+
+                        <div class="comments-counter-container">
+                            <span class="comments-counter">12</span>
+                            <span class="comments-counter-text">Comments</span>
+                        </div>
+
+                        <div class="comments">
+                            <div class="comment">
+                                <div class="commentor-info">
+                                    <img class="commentor-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
+                                    <div class="name-time">
+                                        <strong class="name">Dennis Mitchell</strong>
+                                        <small class="time-posted">4 days ago</small>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <p class="post-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
-                                deserunt labore, autem
-                                sunt
-                                dolores illum recusandae eveniet ipsam perferendis, </p>
+                                <p class="comment-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Molestias
+                                    deserunt labore, autem
+                                    sunt
+                                    dolores illum recusandae eveniet ipsam perferendis, </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <script src="./main.js"></script>
