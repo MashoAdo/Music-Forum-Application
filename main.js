@@ -4,6 +4,9 @@ const createPostButton = document.getElementById("create-post");
 const postModal = document.getElementById("post-modal");
 const overlay = document.getElementById("overlay");
 const postModalButton = document.getElementById("post-modal-button");
+const likeIcon = document.getElementById("like-icon");
+const likesCount = document.getElementById("likes-count");
+const likesOrlike = document.getElementById("likes-pronounciation");
 
 // show/remove menu on click
 menuBtn.addEventListener("click", () => {
@@ -21,4 +24,16 @@ createPostButton.addEventListener("click", () => {
 postModalButton.addEventListener("click", () => {
 	postModal.classList.remove("active");
 	overlay.classList.remove("active");
+});
+
+// count likes
+
+let totalLikes = 0;
+
+likeIcon.addEventListener("click", () => {
+	totalLikes += 1;
+	likesCount.textContent = totalLikes;
+	if (totalLikes > 1) {
+		likesOrlike.textContent = `likes`;
+	}
 });
