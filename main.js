@@ -20,10 +20,16 @@ createPostButton.addEventListener("click", () => {
 	createPostButton.classList.toggle("active");
 });
 
-// remove create post modal and add overlay
+// remove create post modal and add overlay on clicking post button and the overlay itself
 postModalButton.addEventListener("click", () => {
 	postModal.classList.remove("active");
 	overlay.classList.remove("active");
+});
+
+overlay.addEventListener("click", () => {
+	postModal.classList.remove("active");
+	overlay.classList.remove("active");
+	createPostButton.classList.remove("active");
 });
 
 // count likes
@@ -33,6 +39,7 @@ let totalLikes = 0;
 likeIcon.addEventListener("click", () => {
 	totalLikes += 1;
 	likesCount.textContent = totalLikes;
+	// change pronounciation to likes if it is liked more than once
 	if (totalLikes > 1) {
 		likesOrlike.textContent = `likes`;
 	}
