@@ -40,10 +40,10 @@
 
     <main>
         <!--posts pop up -->
-        <div class="post-modal active ">
+        <div class="post-modal " id="post-modal">
             <h2>Write a post</h2>
             <textarea name="post-pop-up" id="post-pop-up"></textarea>
-            <button class="post-modal-btn" data-close-button="close-button">Post</button>
+            <button class="post-modal-btn" id="post-modal-button">Post</button>
         </div>
         <div id="overlay"></div>
         <!-- posts container -->
@@ -73,7 +73,7 @@
                     <div class="like-share">
                         <div class="likes-component">
                             <ion-icon name="heart-outline"></ion-icon>
-                            <small>4 likes</small>
+                            <small><span id="likes-count"></span> like</small>
                         </div>
 
                         <div class="share-component">
