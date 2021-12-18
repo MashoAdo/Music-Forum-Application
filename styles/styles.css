@@ -149,6 +149,70 @@ nav {
   background: #6c82ff;
 }
 
+.post-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  background: #dbe0ff;
+  border-radius: 5px;
+  max-width: 600px;
+  width: 80%;
+  padding: 15px 10px;
+  z-index: 20;
+}
+
+.post-modal textarea {
+  width: 98%;
+  height: 300px;
+  margin-bottom: 2em;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.post-modal.active {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+.post-modal-btn {
+  outline: none;
+  border: none;
+  background: #abb8ff;
+  padding: 0.5em 2em;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.post-modal-btn:hover {
+  background: #ced4ff;
+}
+
+/* overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  opacity: 0;
+  background-color: #f2f2f2;
+  pointer-events: none;
+}
+
+#overlay.active {
+  pointer-events: all;
+  opacity: 0.6;
+}
+
 main {
   position: relative;
 }
@@ -350,39 +414,6 @@ main {
 
 .comments {
   padding-top: 1.5em;
-}
-
-.post-pop-up {
-  background: rgba(204, 212, 255, 0.15);
-  -webkit-box-shadow: 0 8px 16px 0 rgba(204, 212, 255, 0.2);
-          box-shadow: 0 8px 16px 0 rgba(204, 212, 255, 0.2);
-  -webkit-backdrop-filter: blur(7.5px);
-          backdrop-filter: blur(7.5px);
-  border-radius: 10px;
-  padding: 15px 10px;
-  margin: auto;
-}
-
-.pop-up-textarea {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  margin-bottom: 2em;
-  outline: none;
-  border: none;
-}
-
-.post-button {
-  outline: none;
-  border: none;
-  background: #ccd4ff;
-  padding: 10px 30px;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
-
-.post-button:hover {
-  background: #dbe0ff;
 }
 
 @media screen and (max-width: 908px) {
