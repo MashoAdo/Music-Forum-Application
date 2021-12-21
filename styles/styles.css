@@ -253,20 +253,24 @@ main {
 }
 
 .posts-container {
-  padding: 3rem;
+  padding: 3rem 3rem 0;
 }
 
 .section-title {
   font-size: 2em;
-  color: black;
-  margin-bottom: 1em;
+  color: #5770ff;
+  margin-bottom: 2rem;
+}
+
+.post {
+  margin-bottom: 4rem;
 }
 
 .post-title {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.5em;
   margin-bottom: 1.2em;
-  color: #272626;
+  color: black;
 }
 
 .blogger-info,
@@ -379,6 +383,10 @@ main {
 
 .comments-section {
   padding: 3em 1.5em 0;
+}
+
+.comment {
+  margin-bottom: 2rem;
 }
 
 .add-new-post {
