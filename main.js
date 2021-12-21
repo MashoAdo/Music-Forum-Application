@@ -24,6 +24,7 @@ createPostButton.addEventListener("click", () => {
 postModalButton.addEventListener("click", () => {
 	postModal.classList.remove("active");
 	overlay.classList.remove("active");
+	createPostButton.classList.remove("active");
 });
 
 overlay.addEventListener("click", () => {
