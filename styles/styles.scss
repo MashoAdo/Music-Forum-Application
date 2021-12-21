@@ -1,0 +1,405 @@
+// RESET CSS
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	overflow-x: hidden;
+	word-spacing: 2px;
+}
+
+// REUSABLE CSS
+@mixin flexDirection($flexDirection, $jusifyContent) {
+	display: flex;
+	flex-direction: $flexDirection;
+	justify-content: $jusifyContent;
+	align-items: center;
+}
+
+// FONT WEIGHTS
+$font-weight: (
+	"light": 300,
+	"regulaar": 400,
+	"medium": 500,
+	"semi-bold": 600,
+	"bold": 700,
+);
+
+// COLORS
+$light-gray-border: hsl(0, 0%, 90%);
+$light-gray-text: hsl(0, 0%, 60%);
+$gray-text: rgb(114, 114, 114);
+$gray-text-dark: rgb(39, 38, 38);
+$sky-blue: rgb(87, 112, 255);
+$sky-blue-button-hover: rgb(108, 130, 255);
+$sky-blue-hover: rgb(147, 163, 255);
+$sky-blue-light: rgb(239, 240, 245);
+$sky-blue-shadow: rgb(228, 231, 250);
+$black: hsl(0, 0%, 0%);
+
+//============================================= ELEMENTS STYLING ================================================================
+// HEADER
+nav {
+	position: relative;
+}
+
+.menu-nav {
+	@include flexDirection(row, space-between);
+	padding: 1rem 3rem;
+	border-bottom: 2px solid $light-gray-border;
+}
+
+.logo {
+	font-weight: map-get($font-weight, "bold");
+	font-size: 1.5em;
+	color: $sky-blue;
+}
+.menu-btn {
+	border: 2px solid $light-gray-border;
+	width: 40px;
+	height: 40px;
+	transition: all 0.3s ease-out;
+	@include flexDirection(column, space-evenly);
+	&:hover {
+		border-color: $sky-blue;
+	}
+	&:hover .line {
+		background: $sky-blue;
+	}
+}
+
+.line {
+	background: $gray-text;
+	height: 1px;
+	width: 70%;
+	transition: all 0.3s ease-out;
+}
+
+// MENU ITEMS
+@media screen and (max-width: 900px) {
+	.menu-items {
+		@include flexDirection(column, space-between);
+		align-items: flex-start;
+		padding: 50px 30px;
+		border: 0 0 2px 2px solid hsl(0, 0%, 80%);
+		height: 80vh;
+		width: 70%;
+		position: absolute;
+		right: -100%;
+		transition: all 0.3s ease-out;
+		z-index: 10;
+		background: $sky-blue-light;
+	}
+}
+
+// js class to add or remove mobile menu
+.show {
+	right: 0;
+}
+
+.menu-link {
+	color: rgb(0, 0, 0);
+	font-weight: map-get($font-weight, "semi-bold");
+	font-size: 1em;
+	transition: color 0.3s ease-out;
+	&:hover {
+		color: $sky-blue;
+	}
+}
+
+.sign-in {
+	border: none;
+	outline: none;
+	background: $sky-blue;
+	padding: 0.5em 2em;
+	border-radius: 5px;
+	font-weight: map-get($font-weight, "bold");
+	transition: all 0.3s ease-out;
+	font-family: "Poppins", sans-serif;
+	color: #ffffff;
+	&:hover {
+		background: $sky-blue-button-hover;
+	}
+}
+
+// MAIN
+
+// MODAL STYLING
+.post-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 200ms ease-in-out;
+	background: rgb(219, 224, 255);
+	border-radius: 5px;
+	max-width: 600px;
+	width: 80%;
+	padding: 15px 10px;
+	z-index: 20;
+	textarea {
+		width: 98%;
+		height: 300px;
+		margin-bottom: 2em;
+		outline: none;
+		border: none;
+		border-radius: 5px;
+	}
+}
+
+.post-modal.active {
+	transform: translate(-50%, -50%) scale(1);
+}
+
+.post-modal-btn {
+	outline: none;
+	border: none;
+	background: rgb(171, 184, 255);
+	padding: 0.5em 2em;
+	transition: all 0.3s ease-out;
+	border-radius: 5px;
+	font-family: "Poppins", sans-serif;
+	&:hover {
+		background: rgb(206, 212, 255);
+	}
+}
+
+/* overlay */
+#overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: 200ms ease-in-out;
+	opacity: 0;
+	background-color: hsl(0, 0%, 95%);
+	pointer-events: none;
+}
+
+#overlay.active {
+	pointer-events: all;
+	opacity: 0.6;
+}
+
+// POSTS SECTIONS
+main {
+	position: relative;
+}
+
+.create-post {
+	position: fixed;
+	background: $sky-blue;
+	outline: none;
+	border: none;
+	border-radius: 50%;
+	box-shadow: 0px 0px 8px 5px $sky-blue-shadow;
+	width: 40px;
+	height: 40px;
+	color: #ffffff;
+	font-size: 1.8em;
+	@include flexDirection(row, center);
+	transition: 200ms ease-in-out;
+}
+
+.create-post.active {
+	transform: rotate(45deg);
+}
+
+.posts-container {
+	padding: 3rem 3rem 0;
+}
+
+.section-title {
+	font-weight: map-get($font-weight, "regular");
+	font-size: 2em;
+	color: $sky-blue;
+	margin-bottom: 2rem;
+}
+
+.post {
+	margin-bottom: 4rem;
+}
+
+.post-title {
+	font-weight: map-get($font-weight, "semi-bold");
+	font-size: 1.5em;
+	margin-bottom: 1.2em;
+	color: $black;
+}
+
+// blogger info
+.blogger-info,
+.commentor-info {
+	@include flexDirection(row, initial);
+}
+
+.profile-img,
+.commentor-img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+.name-time {
+	@include flexDirection(column, initial);
+	align-items: flex-start;
+}
+
+.name {
+	font-weight: map-get($font-weight, "semi-bold");
+}
+
+.time-posted {
+	color: $light-gray-text;
+}
+
+// blog post
+.post-text,
+.comment-text {
+	line-height: 2;
+	font-size: 0.85em;
+	margin-top: 1.5em;
+	font-weight: map-get($font-weight, "medium");
+	color: rgb(114, 114, 114);
+}
+
+// Likes and Shares
+.like-share {
+	@include flexDirection(row, space-between);
+	padding: 2em 0;
+	font-weight: map-get($font-weight, "light");
+
+	border-bottom: 1px solid $light-gray-border;
+
+	//  align the ionn icons with small element to the center
+	& div {
+		@include flexDirection(row, center);
+
+		// change color of like and share icons
+		color: $sky-blue;
+		transition: all 0.3s ease-out;
+		ion-icon {
+			font-size: 1.2em;
+			margin-right: 10px;
+		}
+		&:hover {
+			color: $sky-blue-hover;
+		}
+	}
+}
+
+//COMMENTS SECTION
+.comments-section {
+	padding: 3em 1.5em 0;
+}
+
+.comment {
+	margin-bottom: 2rem;
+}
+
+.add-new-post {
+	margin-bottom: 1em;
+	font-weight: map-get($font-weight, "semi-bold");
+}
+
+.comments-counter-container {
+	font-weight: map-get($font-weight, "semi-bold");
+	margin-top: 3em;
+}
+.comments-title {
+	margin-top: 0.5em;
+}
+
+// comment input
+.new-comment-text {
+	width: 100%;
+	border: 1px solid $light-gray-border;
+	&::placeholder {
+		font-family: "Poppins", sans-serif;
+		padding: 0.5em 1em;
+	}
+}
+
+.comments {
+	padding-top: 1.5em;
+}
+
+// MEDIA QUERIES
+@media screen and (max-width: 908px) {
+	.create-post {
+		top: 90%;
+		right: 3%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.menu-btn {
+		display: none;
+	}
+
+	// add border bottom for deskotp nav
+	nav {
+		@include flexDirection(row, space-between);
+		border-bottom: 2px solid $light-gray-border;
+		padding: 1.5rem 4rem;
+	}
+	// remove border bottom for mobile nav
+
+	.menu-nav {
+		border-bottom: none;
+		padding: 0;
+	}
+
+	.menu-items {
+		a {
+			margin-right: 1.5em;
+			background: $sky-blue-light;
+			padding: 0.5em 2em;
+			border-radius: 5px;
+		}
+	}
+
+	main {
+		@include flexDirection(column, center);
+	}
+
+	// align main content in the centre because of the width added in main section
+	.posts-container {
+		width: 711px;
+	}
+
+	// align create post button to avoid overshadowing the content
+	.create-post {
+		top: 80%;
+		right: 5%;
+	}
+}
+
+@media screen and (min-width: 1100px) {
+	nav {
+		padding: 1.5rem 6rem;
+	}
+	.menu-items {
+		a {
+			margin-right: 3.5em;
+		}
+	}
+
+	.create-post {
+		top: 70%;
+		right: 15%;
+	}
+}
