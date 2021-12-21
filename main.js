@@ -9,8 +9,6 @@ const likesCount = document.getElementById("likes-count");
 const likesOrlike = document.getElementById("likes-pronounciation");
 const postsContainer = document.getElementById("posts");
 
-console.log(postsContainer);
-
 // show/remove menu on click
 menuBtn.addEventListener("click", () => {
 	menu.classList.toggle("show");
@@ -40,15 +38,6 @@ overlay.addEventListener("click", () => {
 
 let totalLikes = 0;
 
-// likeIcon.addEventListener("click", () => {
-// 	totalLikes += 1;
-// 	likesCount.textContent = totalLikes;
-// 	// change pronounciation to likes if it is liked more than once
-// 	if (totalLikes > 1) {
-// 		likesOrlike.textContent = `likes`;
-// 	}
-// });
-
 // Fetch posts,comments and photos from api JSON placeholder and insert into index file
 
 async function fetchData() {
@@ -69,10 +58,9 @@ async function fetchData() {
 	const [posts, comments, photos, users] = [...data];
 
 	const first10Posts = posts.slice(0, 10);
-	console.log(first10Posts);
 
 	// invoke the below function to display data into the UI
-	displayData(posts, comments, photos, users);
+	displayData(first10Posts, comments, photos, users);
 }
 
 fetchData();
@@ -96,7 +84,7 @@ const displayData = (posts, comments, photos, users) => {
 			return `
 			<div class="comment">
 							   <div class="commentor-info">
-								   <img class="commentor-img" src="./IMG-20210313-WA0051.jpg" alt="profile-img">
+								   <img class="commentor-img" src=${photo.url}  alt="profile-img">
 								   <div class="name-time">
 									   <strong class="name">${comment.email}</strong>
 									   <small class="time-posted">${comment.postId} ${
