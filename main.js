@@ -59,25 +59,30 @@ Promise.all([
 	})
 	.then(() => {
 		// add like count functionality at this point after the fetched data has been inserted inside the dom
-		const likeIcon = document.getElementById("like-icon");
-		const likesCountHtml = document.getElementById("likes-count");
+		const likeIcons = document.querySelectorAll(".like-icon");
+		console.log([...likeIcons]);
 
-		let likesCount = 0;
-		let isLiked = false;
-		console.log(!isLiked);
+		likeIcons.forEach((likeIcon, index) => {
+			const likesCountHtml = document.querySelectorAll(".likes-count");
 
-		likeIcon.addEventListener("click", () => {
-			if (isLiked == false) {
-				likesCount += 1;
-				isLiked = true;
-			} else {
-				likesCount -= 1;
-				isLiked = false;
-			}
-			likesCountHtml.textContent = likesCount;
+			let likesCount = 0;
+			let isLiked = false;
+
+			likeIcon.addEventListener("click", () => {
+				console.log("clicked");
+
+				if (isLiked == false) {
+					likesCount += 1;
+					isLiked = true;
+				} else {
+					likesCount -= 1;
+					isLiked = false;
+				}
+				likesCountHtml[index].textContent = likesCount;
+			});
 		});
 	})
-	.catch((err) => console.log(error));
+	.catch((err) => console.log(err));
 
 // display data arrow function
 const displayData = (posts, comments, photos, users) => {
@@ -130,8 +135,8 @@ const displayData = (posts, comments, photos, users) => {
 
                     <div class="like-share">
                         <div class="likes-component">
-                            <ion-icon name="heart-outline" id="like-icon"></ion-icon>
-                            <small><span id="likes-count"></span> <span id="likes-pronounciation">like</span></small>
+                            <ion-icon name="heart-outline" class="like-icon"></ion-icon>
+                            <small><span class="likes-count"></span> <span id="likes-pronounciation">like</span></small>
                         </div>
 
                         <div class="share-component">
