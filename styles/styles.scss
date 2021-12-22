@@ -221,6 +221,10 @@ main {
 	padding: 3rem 3rem 0;
 }
 
+#post-pop-up {
+	padding: 1em;
+	margin-top: 1rem;
+}
 .section-title {
 	font-weight: map-get($font-weight, "regular");
 	font-size: 2em;
@@ -232,6 +236,7 @@ main {
 	margin-bottom: 4rem;
 }
 
+// posts
 .post-title {
 	font-weight: map-get($font-weight, "semi-bold");
 	font-size: 1.5em;
@@ -327,9 +332,14 @@ main {
 .new-comment-text {
 	width: 100%;
 	border: 1px solid $light-gray-border;
+	outline: 1px solid $light-gray-border;
+	padding: 1em;
+
+	&:focus {
+		outline: 1px solid $light-gray-border;
+	}
 	&::placeholder {
 		font-family: "Poppins", sans-serif;
-		padding: 0.5em 1em;
 	}
 }
 

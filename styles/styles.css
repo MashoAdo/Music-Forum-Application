@@ -256,6 +256,11 @@ main {
   padding: 3rem 3rem 0;
 }
 
+#post-pop-up {
+  padding: 1em;
+  margin-top: 1rem;
+}
+
 .section-title {
   font-size: 2em;
   color: #5770ff;
@@ -406,26 +411,28 @@ main {
 .new-comment-text {
   width: 100%;
   border: 1px solid #e6e6e6;
+  outline: 1px solid #e6e6e6;
+  padding: 1em;
+}
+
+.new-comment-text:focus {
+  outline: 1px solid #e6e6e6;
 }
 
 .new-comment-text::-webkit-input-placeholder {
   font-family: "Poppins", sans-serif;
-  padding: 0.5em 1em;
 }
 
 .new-comment-text:-ms-input-placeholder {
   font-family: "Poppins", sans-serif;
-  padding: 0.5em 1em;
 }
 
 .new-comment-text::-ms-input-placeholder {
   font-family: "Poppins", sans-serif;
-  padding: 0.5em 1em;
 }
 
 .new-comment-text::placeholder {
   font-family: "Poppins", sans-serif;
-  padding: 0.5em 1em;
 }
 
 .comments {
