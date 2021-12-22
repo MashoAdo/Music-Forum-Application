@@ -59,8 +59,9 @@ Promise.all([
 	})
 	.then(() => {
 		// add like count functionality at this point after the fetched data has been inserted inside the dom
+
+		// get likes icon
 		const likeIcons = document.querySelectorAll(".like-icon");
-		console.log([...likeIcons]);
 
 		likeIcons.forEach((likeIcon, index) => {
 			const likesCountHtml = document.querySelectorAll(".likes-count");
@@ -69,8 +70,6 @@ Promise.all([
 			let isLiked = false;
 
 			likeIcon.addEventListener("click", () => {
-				console.log("clicked");
-
 				if (isLiked == false) {
 					likesCount += 1;
 					isLiked = true;
