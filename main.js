@@ -4,9 +4,6 @@ const createPostButton = document.getElementById("create-post");
 const postModal = document.getElementById("post-modal");
 const overlay = document.getElementById("overlay");
 const postModalButton = document.getElementById("post-modal-button");
-const likeIcon = document.getElementById("like-icon");
-const likesCount = document.getElementById("likes-count");
-const likesOrlike = document.getElementById("likes-pronounciation");
 const postsContainer = document.getElementById("posts");
 
 // show/remove menu on click
@@ -36,34 +33,47 @@ overlay.addEventListener("click", () => {
 
 // count likes
 
-let totalLikes = 0;
+// Fetch posts,comments and photos from  JSON placeholder API and insert into index file
+Promise.all([
+	fetch("https://jsonplaceholder.typicode.com/posts"),
+	fetch("https://jsonplaceholder.typicode.com/comments"),
+	fetch("https://jsonplaceholder.typicode.com/photos"),
+	fetch("https://jsonplaceholder.typicode.com/users"),
+])
+	.then((responses) => {
+		// resolve the json reponses into regular js objects
+		return Promise.all(
+			responses.map((response) => {
+				return response.json();
+			})
+		);
+	})
+	.then((data) => {
+		//destructure the js objects
+		const [posts, comments, photos, users] = [...data];
 
-// Fetch posts,comments and photos from api JSON placeholder and insert into index file
+		const first10Posts = posts.slice(0, 10);
 
-async function fetchData() {
-	// simultaneously make fetch request
-	const response = await Promise.all([
-		fetch("https://jsonplaceholder.typicode.com/posts"),
-		fetch("https://jsonplaceholder.typicode.com/comments"),
-		fetch("https://jsonplaceholder.typicode.com/photos"),
-		fetch("https://jsonplaceholder.typicode.com/users"),
-	]);
-	// resolve the json reponses into regular js objects
-	const data = await Promise.all(
-		response.map((response) => {
-			return response.json();
-		})
-	);
-	//destructure the js objects
-	const [posts, comments, photos, users] = [...data];
+		// invoke the below function to display data into the UI
+		displayData(first10Posts, comments, photos, users);
+	})
+	.then(() => {
+		// add like count functionality at this point after the fetched data has been inserted inside the dom
+		const likeIcon = document.getElementById("like-icon");
+		const likesCount = document.getElementById("likes-count");
+		const likesOrlike = document.getElementById("likes-pronounciation");
 
-	const first10Posts = posts.slice(0, 10);
+		let totalLikes = 0;
 
-	// invoke the below function to display data into the UI
-	displayData(first10Posts, comments, photos, users);
-}
-
-fetchData();
+		likeIcon.addEventListener("click", () => {
+			totalLikes += 1;
+			likesCount.textContent = totalLikes;
+			if (totalLikes > 1) {
+				likesOrlike.textContent = `likes`;
+			}
+		});
+	})
+	.catch((err) => console.log(error));
 
 // display data arrow function
 const displayData = (posts, comments, photos, users) => {
