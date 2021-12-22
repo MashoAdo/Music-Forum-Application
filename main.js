@@ -60,17 +60,21 @@ Promise.all([
 	.then(() => {
 		// add like count functionality at this point after the fetched data has been inserted inside the dom
 		const likeIcon = document.getElementById("like-icon");
-		const likesCount = document.getElementById("likes-count");
-		const likesOrlike = document.getElementById("likes-pronounciation");
+		const likesCountHtml = document.getElementById("likes-count");
 
-		let totalLikes = 0;
+		let likesCount = 0;
+		let isLiked = false;
+		console.log(!isLiked);
 
 		likeIcon.addEventListener("click", () => {
-			totalLikes += 1;
-			likesCount.textContent = totalLikes;
-			if (totalLikes > 1) {
-				likesOrlike.textContent = `likes`;
+			if (isLiked == false) {
+				likesCount += 1;
+				isLiked = true;
+			} else {
+				likesCount -= 1;
+				isLiked = false;
 			}
+			likesCountHtml.textContent = likesCount;
 		});
 	})
 	.catch((err) => console.log(error));
