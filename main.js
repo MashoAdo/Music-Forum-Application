@@ -59,7 +59,6 @@ Promise.all([
 	})
 	.then(() => {
 		// add like count functionality at this point after the fetched data has been inserted inside the dom
-
 		// get likes icon
 		const likeIcons = document.querySelectorAll(".like-icon");
 
@@ -79,6 +78,22 @@ Promise.all([
 				}
 				likesCountHtml[index].textContent = likesCount;
 			});
+		});
+
+		// share on social media jquery code
+		$("#share").jsSocials({
+			showLabel: false,
+			showCount: false,
+			text: "Join this Discussion on Whip Music Forum Discussion Page",
+			shares: [
+				"email",
+				"twitter",
+				"facebook",
+				"googleplus",
+				"linkedin",
+				"pinterest",
+				"whatsapp",
+			],
 		});
 	})
 	.catch((err) => console.log(err));
@@ -139,8 +154,9 @@ const displayData = (posts, comments, photos, users) => {
                         </div>
 
                         <div class="share-component">
-                            <ion-icon name="share-social-outline"></ion-icon>
-                            <small>share</small>
+                            <small>share on</small>
+							<div id="share"></div>
+
 
                         </div>
                     </div>
